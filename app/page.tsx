@@ -40,7 +40,7 @@ export default function Home() {
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Left: Hero + Buttons */}
-        <section id="header" className="flex flex-col gap-3">
+        <section id="header" className="flex flex-col gap-3 items-center text-center lg:items-start lg:text-left">
           <BlurFade delay={0.25} inView>
             <Avatar className="h-16 w-16 mb-2">
               <AvatarImage src="/nicolas.webp" alt="Nicolas Fischer" />
@@ -82,7 +82,7 @@ export default function Home() {
         </section>
 
         {/* Right: Services */}
-        <section id="services" className="flex flex-col items-center lg:items-end">
+        <section id="services" className="flex flex-col items-center lg:items-end w-full">
           <BlurFade delay={0.25 * 4} inView>
             <h3 className="text-2xl font-bold tracking-tighter text-center lg:text-right mb-8 sm:text-3xl">
               Services

@@ -108,6 +108,7 @@ export function Component({
                 layout === mode
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary",
+                mode === "grid" && "sm:inline-flex hidden",
               )}
               aria-label={`Switch to ${mode} layout`}
             >

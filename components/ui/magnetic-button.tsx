@@ -12,6 +12,7 @@ type MagneticButtonType = {
 
 function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
@@ -21,6 +22,12 @@ function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
   const springY = useSpring(y, SPRING_CONFIG);
 
   useEffect(() => {
+    setIsTouch(!window.matchMedia('(hover: hover) and (pointer: fine)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (isTouch) return;
+
     const calculateDistance = (e: MouseEvent) => {
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
@@ -40,21 +47,20 @@ function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
     };
 
     document.addEventListener('mousemove', calculateDistance);
+    return () => document.removeEventListener('mousemove', calculateDistance);
+  }, [ref, isHovered, isTouch, distance, x, y]);
 
-    return () => {
-      document.removeEventListener('mousemove', calculateDistance);
-    };
-  }, [ref, isHovered]);
+  if (isTouch) {
+    return <div>{children}</div>;
+  }
 
   return (
     <motion.div
       ref={ref}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        x: springX,
-        y: springY
-      }}>
+      style={{ x: springX, y: springY }}
+    >
       {children}
     </motion.div>
   );
