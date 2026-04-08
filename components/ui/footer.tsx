@@ -2,8 +2,8 @@ import { Heart } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border mt-8">
-      <div className="w-full max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-10">
+    <footer className="w-full border-t border-border mt-8 self-stretch">
+      <div className="w-full max-w-5xl mx-auto py-10">
 
         {/* Top row: left empty, right: Name + LinkedIn */}
         <div className="flex justify-between items-start w-full">
