@@ -1,9 +1,12 @@
 import { BlurFade } from "@/components/ui/blur-fade"
+import { Footer } from "@/components/ui/footer"
+import { Linkedin, User } from "lucide-react"
 import { Typewriter } from "@/components/ui/typewriter"
 import { MagneticButton } from "@/components/ui/magnetic-button"
 import { Component as MorphingCardStack } from "@/components/ui/morphing-card-stack"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Briefcase, Code2, LineChart, Users } from "lucide-react"
+
 
 const services = [
   {
@@ -107,6 +110,24 @@ export default function Home() {
         </h2>
       </div>
 
+      <Footer
+        logo={<User className="h-6 w-6" />}
+        brandName="Nicolas Fischer"
+        socialLinks={[
+          {
+            icon: <Linkedin className="h-5 w-5" />,
+            href: "https://www.linkedin.com/in/nicolas-fischer-756589197",
+            label: "LinkedIn",
+          },
+        ]}
+        address={["Allmendweg 37", "8500 Frauenfeld"]}
+        copyright={{
+          text: "© 2026 Nicolas Fischer",
+          madeWith: "Made with love and AI",
+          email: "nicolas.fischer@fian.ch",
+          phone: "+41 77 232 64 65",
+        }}
+      />
     </main>
   )
 }
