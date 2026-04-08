@@ -1,65 +1,112 @@
-import Image from "next/image";
+import { BlurFade } from "@/components/ui/blur-fade"
+import { Typewriter } from "@/components/ui/typewriter"
+import { MagneticButton } from "@/components/ui/magnetic-button"
+import { Component as MorphingCardStack } from "@/components/ui/morphing-card-stack"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Briefcase, Code2, LineChart, Users } from "lucide-react"
+
+const services = [
+  {
+    id: "4",
+    title: "Digitalisierung auf Abruf",
+    description: "Du hast keine Energie für eine IT Stelle, möchtest aber punktuell einen Blick von aussen? Dafür bin ich zu haben.",
+    icon: <Users className="h-5 w-5" />,
+  },
+  {
+    id: "1",
+    title: "Websites & Onlineshops",
+    description: "Ich unterstütze dich bei deinem digitalen Auftritt und Verkaufssystemen.",
+    icon: <Briefcase className="h-5 w-5" />,
+  },
+  {
+    id: "2",
+    title: "Tracking",
+    description: "Ich helfe dir die digitalen Daten in deinem Unternehmen zu verstehen.",
+    icon: <LineChart className="h-5 w-5" />,
+  },
+  {
+    id: "3",
+    title: "CRM / ERP Systeme",
+    description: "Bei Anpassungen bei deinen Herzstücken bin ich zur Stelle.",
+    icon: <Code2 className="h-5 w-5" />,
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-12 sm:px-10 lg:px-16">
+
+      {/* Main two-column layout */}
+      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        {/* Left: Hero + Buttons */}
+        <section id="header" className="flex flex-col gap-3">
+          <BlurFade delay={0.25} inView>
+            <Avatar className="h-16 w-16 mb-2">
+              <AvatarImage src="/nicolas.webp" alt="Nicolas Fischer" />
+              <AvatarFallback>NF</AvatarFallback>
+            </Avatar>
+          </BlurFade>
+          <BlurFade delay={0.25} inView>
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+              Hello World 👋
+            </h2>
+          </BlurFade>
+          <BlurFade delay={0.25 * 2} inView>
+            <span className="text-xl tracking-tighter text-muted-foreground sm:text-2xl">
+              Wie gesagt, pragmatisch.
+            </span>
+          </BlurFade>
+          <BlurFade delay={0.25 * 3} inView>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <MagneticButton>
+                <a
+                  href="https://www.linkedin.com/in/nicolas-fischer-756589197"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-indigo-500 hover:bg-indigo-600 transition-colors px-8 text-base text-white py-3 rounded-full inline-block"
+                >
+                  Linkedin
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href="mailto:nicolas.fischer@fian.ch"
+                  className="bg-indigo-500 hover:bg-indigo-600 transition-colors px-8 text-base text-white py-3 rounded-full inline-block"
+                >
+                  E-Mail
+                </a>
+              </MagneticButton>
+            </div>
+          </BlurFade>
+        </section>
+
+        {/* Right: Services */}
+        <section id="services" className="flex flex-col items-center lg:items-end">
+          <BlurFade delay={0.25 * 4} inView>
+            <h3 className="text-2xl font-bold tracking-tighter text-center lg:text-right mb-8 sm:text-3xl">
+              Services
+            </h3>
+            <MorphingCardStack cards={services} defaultLayout="stack" />
+          </BlurFade>
+        </section>
+
+      </div>
+      {/* Full-width bottom tagline */}
+      <div className="w-full max-w-5xl mt-16 border-t border-border pt-10 pb-4">
+        <h2 className="font-semibold text-primary text-xl sm:text-2xl lg:text-3xl leading-snug">
+          <Typewriter
+            words={[
+              "Wir schauen zuerst zusammen hin wo der digitale Schuh drückt. Danach finden wir die beste Lösung, welche zu eurem Budget und eurer Arbeitsweise passt.",
+            ]}
+            speed={40}
+            cursor={true}
+            cursorChar="|"
+            loop={false}
+          />
+        </h2>
+      </div>
+
+    </main>
+  )
 }
