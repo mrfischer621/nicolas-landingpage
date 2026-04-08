@@ -3,13 +3,10 @@ import { Heart } from "lucide-react"
 export function Footer() {
   return (
     <footer className="pb-6 pt-16 lg:pb-8 lg:pt-24 border-t border-border">
-      <div className="px-4 lg:px-8 max-w-5xl mx-auto">
+      <div className="px-6 sm:px-10 lg:px-16 max-w-5xl mx-auto">
 
-        {/* Top row: Name + LinkedIn */}
-        <div className="md:flex md:items-start md:justify-between">
-          <a href="/" className="flex items-center gap-x-2" aria-label="Nicolas Fischer">
-            <span className="font-bold text-xl">Nicolas Fischer</span>
-          </a>
+        {/* Top row: LinkedIn only */}
+        <div className="md:flex md:items-start md:justify-end">
           <a
             href="https://www.linkedin.com/in/nicolas-fischer-756589197"
             target="_blank"
@@ -52,7 +49,7 @@ export function Footer() {
               <span>© 2026 Nicolas Fischer</span>
               <span>·</span>
               <span className="flex items-center gap-1">
-                Made with love and AI
+                Made with love and a (little bit) with AI
                 <Heart className="h-4 w-4 fill-blue-500 text-blue-500" />
               </span>
             </div>

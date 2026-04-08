@@ -95,7 +95,7 @@ export default function Home() {
 
       </div>
       {/* Full-width bottom tagline */}
-      <div className="w-full max-w-5xl mt-16 border-t border-border pt-10 pb-4">
+      <div className="w-full max-w-5xl mt-16 pt-10 pb-4">
         <h2 className="font-semibold text-primary text-xl sm:text-2xl lg:text-3xl leading-snug">
           <Typewriter
             words={[
