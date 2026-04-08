@@ -6,7 +6,7 @@ export function Footer() {
       <div className="w-full max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-10">
 
         {/* Top row: left empty, right: Name + LinkedIn */}
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start w-full">
 
           {/* Left: contact + tagline */}
           <div className="text-sm leading-6 text-muted-foreground">
