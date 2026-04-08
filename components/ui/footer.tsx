@@ -1,101 +1,73 @@
-import { Button } from "@/components/ui/button"
-import { Heart, Linkedin, User } from "lucide-react"
+import { Heart } from "lucide-react"
 
-interface FooterProps {
-  logo: React.ReactNode
-  brandName: string
-  socialLinks: Array<{
-    icon: React.ReactNode
-    href: string
-    label: string
-  }>
-  address: string[]
-  copyright: {
-    text: string
-    madeWith?: string
-    email?: string
-    phone?: string
-  }
-}
-
-export function Footer({
-  logo,
-  brandName,
-  socialLinks,
-  address,
-  copyright,
-}: FooterProps) {
+export function Footer() {
   return (
     <footer className="pb-6 pt-16 lg:pb-8 lg:pt-24 border-t border-border">
       <div className="px-4 lg:px-8 max-w-5xl mx-auto">
+
+        {/* Top row: Name + LinkedIn */}
         <div className="md:flex md:items-start md:justify-between">
-          <a
-            href="/"
-            className="flex items-center gap-x-2"
-            aria-label={brandName}
-          >
-            {logo}
-            <span className="font-bold text-xl">{brandName}</span>
+          <a href="/" className="flex items-center gap-x-2" aria-label="Nicolas Fischer">
+            <span className="font-bold text-xl">Nicolas Fischer</span>
           </a>
-          <ul className="flex list-none mt-6 md:mt-0 space-x-3">
-            {socialLinks.map((link, i) => (
-              <li key={i}>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="h-10 w-10 rounded-full"
-                  asChild
-                >
-                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                    {link.icon}
-                  </a>
-                </Button>
-              </li>
-            ))}
-          </ul>
+          <a
+            href="https://www.linkedin.com/in/nicolas-fischer-756589197"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors mt-6 md:mt-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
         </div>
 
+        {/* Divider + bottom */}
         <div className="border-t mt-6 pt-6 md:mt-4 md:pt-8 lg:grid lg:grid-cols-10">
+
           {/* Address */}
-          <div className="lg:col-[4/11] lg:flex lg:justify-end">
-            <ul className="list-none flex flex-col gap-1">
-              {address.map((line, i) => (
-                <li key={i} className="text-sm text-muted-foreground">
-                  {line}
-                </li>
-              ))}
-            </ul>
+          <div className="lg:col-[4/11] lg:flex lg:justify-end mb-6 lg:mb-0">
+            <div className="text-sm text-muted-foreground">
+              <p>Allmendweg 37</p>
+              <p>8500 Frauenfeld</p>
+            </div>
           </div>
 
           {/* Copyright + contact */}
-          <div className="mt-6 text-sm leading-6 text-muted-foreground lg:mt-0 lg:row-[1/3] lg:col-[1/4]">
+          <div className="text-sm leading-6 text-muted-foreground lg:row-[1/3] lg:col-[1/4]">
             <div className="flex items-center gap-1 flex-wrap">
-              <span>{copyright.text}</span>
-              {copyright.madeWith && (
-                <>
-                  <span>·</span>
-                  <span className="flex items-center gap-1">
-                    {copyright.madeWith}
-                    <Heart className="h-4 w-4 fill-blue-500 text-blue-500" />
-                  </span>
-                </>
-              )}
+              <span>© 2026 Nicolas Fischer</span>
+              <span>·</span>
+              <span className="flex items-center gap-1">
+                Made with love and AI
+                <Heart className="h-4 w-4 fill-blue-500 text-blue-500" />
+              </span>
             </div>
-            {copyright.email && (
-              <div>
-                <a href={`mailto:${copyright.email}`} className="hover:text-foreground transition-colors">
-                  {copyright.email}
-                </a>
-              </div>
-            )}
-            {copyright.phone && (
-              <div>
-                <a href={`tel:${copyright.phone.replace(/\s/g, '')}`} className="hover:text-foreground transition-colors">
-                  {copyright.phone}
-                </a>
-              </div>
-            )}
+            <div>
+              <a href="mailto:nicolas.fischer@fian.ch" className="hover:text-foreground transition-colors">
+                nicolas.fischer@fian.ch
+              </a>
+            </div>
+            <div>
+              <a href="tel:+41772326465" className="hover:text-foreground transition-colors">
+                +41 77 232 64 65
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </footer>
